@@ -18,7 +18,9 @@
         <td><%= question.title %></td>
         <td><%= question.message %></td>
         <td><%= question.tag %></td>
-        <td><%= question.answers%></td>
+        <% question.answers.each do |answer| %>
+            <td><%= answer.answer_text %></td>
+		      <%end%>
         <td><%= link_to 'Show Answers', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
