@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Answer text:</strong>
+  <%= @answer.answer_text %>
+</p>
+
+<p>
+  <strong>Correct:</strong>
+  <%= @answer.correct %>
+</p>
+
+<div class="Answer">
+<h3>Answers</h3>
+<ul>
+  <% @question.answers.each do |answer| %>
+
+    <li> <%= link_to(answer.answer_text, answer) %> </li>
+  <% end %>
+</ul>
+</div>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#my2ndModal">
+  Create New Answer
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="my2ndModal" tabindex="-1" role="dialog" aria-labelledby="my2ndModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="my2ndModalLabel">Post Answer</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'answers/form' %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close Form</button>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
